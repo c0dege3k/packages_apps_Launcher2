@@ -158,6 +158,8 @@ public final class Launcher extends Activity
 	final int THREE = 3;
 	final int FIVE  = 5;
 	final int SEVEN = 7;
+
+    public static final String USE_STARK_THEME = "use_stark_theme";
     
 
     static final int DEFAULT_SCREEN = 2;
@@ -219,6 +221,8 @@ public final class Launcher extends Activity
     private FolderInfo mFolderInfo;
 
     private DeleteZone mDeleteZone;
+    private LauncherDisk mDisk;
+    private boolean stark_style;
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
@@ -328,65 +332,83 @@ public final class Launcher extends Activity
         IntentFilter filter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         registerReceiver(mCloseSystemDialogsReceiver, filter);
     }
-  //Sets the number of screens
-    
-
   
-    private void setNumScreens(){
+
+	//Sets the number of screens  
+	private void setNumScreens(){
+		Log.d(TAG, "Setting the number of screens for the launcher");
+
+		int NUM_SCREENS = 0;
+
+		try{
+
+			NUM_SCREENS = Settings.System.getInt( getContentResolver() , SCREENSETTINGS) ;
+		Log.d(TAG, "The number of screens is " + NUM_SCREENS);
+
+		} catch (SettingNotFoundException e) {
+
+			// TODO Auto-generated catch block
+			Log.d(TAG,"Settings not found, manually resolving number of screens");
+			NUM_SCREENS = DEFAULT_SCREEN_COUNT;
+
+		}
+
+		Log.d(TAG, "Number of screens setting resolved");
+
     	
-   Log.d(TAG, "Setting the number of screens for the launcher");
     	
-   int NUM_SCREENS = 0;
     	
+		switch(NUM_SCREENS)
+		{
+		   	case THREE:
+		   	{
+		   		SCREEN_COUNT = THREE;
+		   		setContentView(stark_style ? R.layout.stark_launcher_3 : R.layout.launcher_3);
+		   		break;
+		   	}
+		   	case FIVE:
+		   	{
+		   		SCREEN_COUNT = FIVE;
+		   		setContentView(stark_style ? R.layout.stark_launcher_5 : R.layout.launcher_5);  	
+		   		break;
+		   	}
+		   	case SEVEN:
+		   	{
+		   		SCREEN_COUNT = SEVEN;
+		   		setContentView(stark_style ? R.layout.stark_launcher_7 : R.layout.launcher_7); 
+		   		break;
+		   		
+		   	}
+		   	default:
+		   	{
+		   		SCREEN_COUNT = SEVEN;
+		   	    	setContentView(stark_style ? R.layout.stark_launcher_7 : R.layout.launcher_7);  
+		   		break;
+		   	}
+
+		}
+    }
+
+    private boolean setScreenStyle() {
+	Log.d(TAG, "Setting the style for the launcher");
+
+	int SCREEN_STYLE = 0;
+
 	try{
 
-		NUM_SCREENS = Settings.System.getInt( getContentResolver() , SCREENSETTINGS) ;
-    	Log.d(TAG, "The number of screens is " + NUM_SCREENS);
+		SCREEN_STYLE = Settings.System.getInt( getContentResolver() , USE_STARK_THEME) ;
+	Log.d(TAG, "The screen style is " + SCREEN_STYLE);
 
 	} catch (SettingNotFoundException e) {
 
 		// TODO Auto-generated catch block
-		Log.d(TAG,"Settings not found, manually resolving number of screens");
-		NUM_SCREENS = DEFAULT_SCREEN_COUNT;
+		Log.d(TAG,"Settings not found, manually resolving screen style");
 
-  	}
-    	
-    	Log.d(TAG, "Number of screens setting resolved");
-    	
-    	
-    	
-    	
-    	switch(NUM_SCREENS)
-    	{
-    	   	case THREE:
-    	   	{
-    	   		SCREEN_COUNT = THREE;
-    	   		setContentView(R.layout.launcher_3);
-    	   		break;
-    	   	}
-    	   	case FIVE:
-    	   	{
-    	   		SCREEN_COUNT = FIVE;
-    	   		setContentView(R.layout.launcher_5);  	
-    	   		break;
-    	   	}
-    	   	case SEVEN:
-    	   	{
-    	   		SCREEN_COUNT = SEVEN;
-    	   		setContentView(R.layout.launcher_7); 
-    	   		break;
-    	   		
-    	   	}
-    	   	default:
-    	   	{
-    	   		SCREEN_COUNT = SEVEN;
-    	   	    setContentView(R.layout.launcher_7);  
-    	   		break;
-    	   	}
-    	
-    	}
- 
-    	
+	}
+
+	Log.d(TAG, "Screen style setting resolved");
+	
+	return SCREEN_STYLE != 0;
     }
 
   
@@ -946,7 +968,11 @@ public final class Launcher extends Activity
         DeleteZone deleteZone = (DeleteZone) dragLayer.findViewById(R.id.delete_zone);
         mDeleteZone = deleteZone;
 
-        mHandleView = (HandleView) findViewById(R.id.all_apps_button);
+	mDisk = (LauncherDisk)findViewById(R.id.disk);
+	if(stark_style)
+        	mHandleView = mDisk.getAppsButton();
+	else
+		mHandleView = (HandleView)findViewById(R.id.all_apps_button);
         mHandleView.setLauncher(this);
         mHandleView.setOnClickListener(this);
         mHandleView.setOnLongClickListener(this);
