@@ -103,10 +103,18 @@
         android:paddingTop="2dip"
         >
 
+	<ImageView
+	    android:id="@+id/disk_bar"
+	    style="@style/StarkHotseat"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+	    android:src="@drawable/stark_bar"
+	    />
+
         <ImageView
             android:id="@+id/hotseat_left"
             style="@style/StarkHotseat.Left"
-            android:gravity="left"
+            android:layout_toLeftOf="disk_bar"
             android:src="@drawable/stark_hotseat_phone"
             android:onClick="launchHotSeat"
             />
@@ -114,7 +122,7 @@
         <ImageView
             android:id="@+id/hotseat_right"
             style="@style/StarkHotseat.Right"
-            android:gravity="right"
+            android:layout_toRightOf="disk_bar"
             android:src="@drawable/stark_hotseat_browser"
             android:onClick="launchHotSeat"
             />
