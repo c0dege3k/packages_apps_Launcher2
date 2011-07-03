@@ -109,7 +109,7 @@
         <ImageView
             android:id="@+id/hotseat_left"
             style="@style/StarkHotseat.Left"
-            android:layout_toLeftOf="disk_bar"
+            android:layout_toLeftOf="@id/disk_bar"
             android:src="@drawable/stark_hotseat_phone"
             android:onClick="launchHotSeat"
             />
@@ -117,9 +117,10 @@
         <ImageView
             android:id="@+id/hotseat_right"
             style="@style/StarkHotseat.Right"
-            android:layout_toRightOf="disk_bar"
+            android:layout_toRightOf="@id/disk_bar"
             android:src="@drawable/stark_hotseat_browser"
             android:onClick="launchHotSeat"
+	    />
 
     </RelativeLayout>
     <!-- This ends XML attributes defined for the app cluster -->
