@@ -340,6 +340,7 @@ public final class Launcher extends Activity
 		Log.d(TAG, "Setting the number of screens for the launcher");
 
 		int NUM_SCREENS = 0;
+		stark_style = setScreenStyle();
 
 		try{
 
