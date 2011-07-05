@@ -960,9 +960,9 @@ public final class Launcher extends Activity
         mDeleteZone = deleteZone;
 
 	mDisk = (LauncherDisk)findViewById(R.id.disk);
-	/*if(stark_style)
+	if(stark_style)
         	mHandleView = mDisk.getAppsButton();
-	else*/
+	else
 		mHandleView = (HandleView)findViewById(R.id.all_apps_button);
         mHandleView.setLauncher(this);
         mHandleView.setOnClickListener(this);
@@ -978,27 +978,29 @@ public final class Launcher extends Activity
             hotseatRight.setContentDescription(mHotseatLabels[1]);
             hotseatRight.setImageDrawable(mHotseatIcons[1]);
             hotseatRight.setOnLongClickListener(this);
-	        ImageView hotseatfarRight = (ImageView) findViewById(R.id.hotseat_farright);
-	        hotseatfarRight.setContentDescription(mHotseatLabels[2]);
-	        hotseatfarRight.setImageDrawable(mHotseatIcons[2]);
-	        hotseatfarRight.setOnLongClickListener(this);
-	        ImageView hotseatfarLeft = (ImageView) findViewById(R.id.hotseat_farleft);
-	        hotseatfarLeft.setContentDescription(mHotseatLabels[3]);
-	        hotseatfarLeft.setImageDrawable(mHotseatIcons[3]);
-	        hotseatfarLeft.setOnLongClickListener(this);
-              if (mUseExtendedHotseats) {
-                Slog.d(TAG, "UEH = true");
-                    hotseatfarRight.setVisibility(View.VISIBLE);
-                    hotseatfarLeft.setVisibility(View.VISIBLE);
-                    hotseatLeft.setBackgroundResource(R.drawable.hotseat_bg_center);
-                    hotseatRight.setBackgroundResource(R.drawable.hotseat_bg_center);
-                } else {
-                Slog.d(TAG, "UEH = false");
-                    hotseatRight.setBackgroundResource(R.drawable.hotseat_bg_right);
-                    hotseatLeft.setBackgroundResource(R.drawable.hotseat_bg_left);
-                    hotseatfarRight.setVisibility(View.GONE);
-                    hotseatfarLeft.setVisibility(View.GONE);
-                }
+	    	if (!stark_style) {
+			ImageView hotseatfarRight = (ImageView) findViewById(R.id.hotseat_farright);
+			hotseatfarRight.setContentDescription(mHotseatLabels[2]);
+			hotseatfarRight.setImageDrawable(mHotseatIcons[2]);
+			hotseatfarRight.setOnLongClickListener(this);
+			ImageView hotseatfarLeft = (ImageView) findViewById(R.id.hotseat_farleft);
+			hotseatfarLeft.setContentDescription(mHotseatLabels[3]);
+			hotseatfarLeft.setImageDrawable(mHotseatIcons[3]);
+			hotseatfarLeft.setOnLongClickListener(this);
+		      if (mUseExtendedHotseats) {
+		        Slog.d(TAG, "UEH = true");
+		            hotseatfarRight.setVisibility(View.VISIBLE);
+		            hotseatfarLeft.setVisibility(View.VISIBLE);
+		            hotseatLeft.setBackgroundResource(R.drawable.hotseat_bg_center);
+		            hotseatRight.setBackgroundResource(R.drawable.hotseat_bg_center);
+		        } else {
+		        Slog.d(TAG, "UEH = false");
+		            hotseatRight.setBackgroundResource(R.drawable.hotseat_bg_right);
+		            hotseatLeft.setBackgroundResource(R.drawable.hotseat_bg_left);
+		            hotseatfarRight.setVisibility(View.GONE);
+		            hotseatfarLeft.setVisibility(View.GONE);
+		        }
+	       }
 
         workspace.setOnLongClickListener(this);
         workspace.setDragController(dragController);
