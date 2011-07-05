@@ -960,9 +960,9 @@ public final class Launcher extends Activity
         mDeleteZone = deleteZone;
 
 	mDisk = (LauncherDisk)findViewById(R.id.disk);
-	if(stark_style)
+	/*if(stark_style)
         	mHandleView = mDisk.getAppsButton();
-	else
+	else*/
 		mHandleView = (HandleView)findViewById(R.id.all_apps_button);
         mHandleView.setLauncher(this);
         mHandleView.setOnClickListener(this);
