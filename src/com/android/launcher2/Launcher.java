@@ -225,7 +225,7 @@ public final class Launcher extends Activity
 
     private DeleteZone mDeleteZone;
     private LauncherDisk mDisk;
-    private static boolean starkstyle = ((Settings.System.getInt( getContentResolver() , USESTARK_THEME,0)==1));
+    private boolean starkstyle = ((Settings.System.getInt( getContentResolver() , USESTARK_THEME,0)==1));
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
@@ -364,26 +364,26 @@ public final class Launcher extends Activity
 		   	case THREE:
 		   	{
 		   		SCREEN_COUNT = THREE;
-		   		setContentView(stark_style ? R.layout.stark_launcher_3 : R.layout.launcher_3);
+		   		setContentView(starkstyle ? R.layout.stark_launcher_3 : R.layout.launcher_3);
 		   		break;
 		   	}
 		   	case FIVE:
 		   	{
 		   		SCREEN_COUNT = FIVE;
-		   		setContentView(stark_style ? R.layout.stark_launcher_5 : R.layout.launcher_5);  	
+		   		setContentView(starkstyle ? R.layout.stark_launcher_5 : R.layout.launcher_5);  	
 		   		break;
 		   	}
 		   	case SEVEN:
 		   	{
 		   		SCREEN_COUNT = SEVEN;
-		   		setContentView(stark_style ? R.layout.stark_launcher_7 : R.layout.launcher_7); 
+		   		setContentView(starkstyle ? R.layout.stark_launcher_7 : R.layout.launcher_7); 
 		   		break;
 		   		
 		   	}
 		   	default:
 		   	{
 		   		SCREEN_COUNT = SEVEN;
-		   	    	setContentView(stark_style ? R.layout.stark_launcher_7 : R.layout.launcher_7);  
+		   	    	setContentView(starkstyle ? R.layout.stark_launcher_7 : R.layout.launcher_7);  
 		   		break;
 		   	}
 
@@ -936,7 +936,7 @@ public final class Launcher extends Activity
         mDeleteZone = deleteZone;
 
 	mDisk = (LauncherDisk)findViewById(R.id.disk);
-	if(stark_style)
+	if(starkstyle)
         	mHandleView = mDisk.getAppsButton();
 	else
 		mHandleView = (HandleView)findViewById(R.id.all_apps_button);
@@ -954,7 +954,7 @@ public final class Launcher extends Activity
             hotseatRight.setContentDescription(mHotseatLabels[1]);
             hotseatRight.setImageDrawable(mHotseatIcons[1]);
             hotseatRight.setOnLongClickListener(this);
-	    	if (!stark_style) {
+	    	if (!starkstyle) {
 			ImageView hotseatfarRight = (ImageView) findViewById(R.id.hotseat_farright);
 			hotseatfarRight.setContentDescription(mHotseatLabels[2]);
 			hotseatfarRight.setImageDrawable(mHotseatIcons[2]);
