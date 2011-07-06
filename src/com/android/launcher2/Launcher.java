@@ -225,7 +225,7 @@ public final class Launcher extends Activity
 
     private DeleteZone mDeleteZone;
     private LauncherDisk mDisk;
-    private boolean stark_style;
+    private static boolean stark_style;
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
