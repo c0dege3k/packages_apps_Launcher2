@@ -225,7 +225,7 @@ public final class Launcher extends Activity
 
     private DeleteZone mDeleteZone;
     private LauncherDisk mDisk;
-    private boolean starkstyle = ((Settings.System.getInt( getContentResolver() , USE_STARK_THEME,0)==1));
+    private static boolean starkstyle;
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
@@ -340,6 +340,7 @@ public final class Launcher extends Activity
 		Log.d(TAG, "Setting the number of screens for the launcher");
 
 		int NUM_SCREENS = 0;
+		starkstyle = Settings.System.getInt( getContentResolver(), USE_STARK_THEME, 0) == 1;
 
 		try{
 
