@@ -225,7 +225,7 @@ public final class Launcher extends Activity
 
     private DeleteZone mDeleteZone;
     private LauncherDisk mDisk;
-    private static boolean stark_style;
+    private static boolean starkstyle = ((Settings.System.getInt( getContentResolver() , USESTARK_THEME,0)==1);
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
@@ -340,7 +340,6 @@ public final class Launcher extends Activity
 		Log.d(TAG, "Setting the number of screens for the launcher");
 
 		int NUM_SCREENS = 0;
-		stark_style = setScreenStyle();
 
 		try{
 
@@ -391,29 +390,6 @@ public final class Launcher extends Activity
 		}
     }
 
-    private boolean setScreenStyle() {
-	Log.d(TAG, "Setting the style for the launcher");
-
-	int SCREEN_STYLE = 0;
-
-	try{
-
-		SCREEN_STYLE = Settings.System.getInt( getContentResolver() , USE_STARK_THEME) ;
-	Log.d(TAG, "The screen style is " + SCREEN_STYLE);
-
-	} catch (SettingNotFoundException e) {
-
-		// TODO Auto-generated catch block
-		Log.d(TAG,"Settings not found, manually resolving screen style");
-
-	}
-
-	Log.d(TAG, "Screen style setting resolved");
-	
-	return SCREEN_STYLE != 0;
-    }
-
-  
 
     private void checkForLocaleChange() {
         if (sLocaleConfiguration == null) {
