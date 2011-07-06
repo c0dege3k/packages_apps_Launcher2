@@ -225,7 +225,7 @@ public final class Launcher extends Activity
 
     private DeleteZone mDeleteZone;
     private LauncherDisk mDisk;
-    private static boolean starkstyle = ((Settings.System.getInt( getContentResolver() , USESTARK_THEME,0)==1);
+    private static boolean starkstyle = ((Settings.System.getInt( getContentResolver() , USESTARK_THEME,0)==1));
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
