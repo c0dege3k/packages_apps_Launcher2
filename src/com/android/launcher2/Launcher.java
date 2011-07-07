@@ -341,6 +341,7 @@ public final class Launcher extends Activity
 
 		int NUM_SCREENS = 0;
 		starkstyle = Settings.System.getInt( getContentResolver(), USE_STARK_THEME, 0) == 1;
+		Log.d(TAG, "starkstyle = " + starkstyle);
 
 		try{
 

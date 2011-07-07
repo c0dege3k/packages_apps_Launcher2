@@ -24,8 +24,8 @@
          button_bar_height changes -->
     <dimen name="button_bar_height_portrait">56dip</dimen>
 
-    <dimen name="stark_bar_height">150dip</dimen>
-    <dimen name="stark_bar_height_portrait">150dip</dimen>
+    <dimen name="stark_bar_height">147dip</dimen>
+    <dimen name="stark_bar_height_portrait">147dip</dimen>
 
     <!-- roughly a status bar (for vertically centering the all apps
          home icon in landscape) -->
