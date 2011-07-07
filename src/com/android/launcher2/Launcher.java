@@ -226,6 +226,7 @@ public final class Launcher extends Activity
     private DeleteZone mDeleteZone;
     private LauncherDisk mDisk;
     private static boolean starkstyle;
+    private static boolean diskVisible;
     private HandleView mHandleView;
     private AllAppsView mAllAppsGrid;
 
@@ -342,6 +343,7 @@ public final class Launcher extends Activity
 		int NUM_SCREENS = 0;
 		starkstyle = Settings.System.getInt( getContentResolver(), USE_STARK_THEME, 0) == 1;
 		Log.d(TAG, "starkstyle = " + starkstyle);
+		diskVisible = starkStyle;
 
 		try{
 
@@ -1036,6 +1038,12 @@ public final class Launcher extends Activity
                 "hotseat"
             );
         }
+    }
+
+    //Stark shit happening HERE: the click method for the show/hide bar of the disk
+    public void changeDiskVisibility() {
+	mDisk.setVisibility(diskVisible ? View.VISIBLE : View.GONE);
+	diskVisible = !diskVisible;
     }
     
     /**

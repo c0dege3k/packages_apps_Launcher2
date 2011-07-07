@@ -107,7 +107,7 @@
         <item name="android:paddingRight">12dip</item>
         <item name="android:background">@drawable/stark_center</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_height">@dimen/center_bar_height</item>
         <item name="android:scaleType">center</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>

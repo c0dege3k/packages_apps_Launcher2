@@ -108,6 +108,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
 	    android:src="@drawable/stark_bar"
+	    android:onClick="changeDiskVisibility"
 	    />
 
         <ImageView
