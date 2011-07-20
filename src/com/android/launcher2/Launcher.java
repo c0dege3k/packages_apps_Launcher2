@@ -1041,7 +1041,7 @@ public final class Launcher extends Activity
     }
 
     //Stark shit happening HERE: the click method for the show/hide bar of the disk
-    public void changeDiskVisibility() {
+    public void changeDiskVisibility(View v) {
 	mDisk.setVisibility(diskVisible ? View.VISIBLE : View.GONE);
 	diskVisible = !diskVisible;
     }

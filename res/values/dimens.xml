@@ -27,6 +27,7 @@
     <dimen name="stark_bar_height">141dip</dimen>
     <dimen name="stark_bar_height_portrait">141dip</dimen>
     <dimen name="center_bar_height">13dip</dimen>
+    <dimen name="center_bar_width">186dip</dimen>
 
     <!-- roughly a status bar (for vertically centering the all apps
          home icon in landscape) -->
