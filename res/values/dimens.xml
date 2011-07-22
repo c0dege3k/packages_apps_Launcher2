@@ -24,6 +24,7 @@
          button_bar_height changes -->
     <dimen name="button_bar_height_portrait">56dip</dimen>
 
+    <!-- heights and widths of the center bar and hotseat section in portrait- will be reversed in landscape -->
     <dimen name="stark_bar_height">141dip</dimen>
     <dimen name="stark_bar_height_portrait">141dip</dimen>
     <dimen name="center_bar_height">13dip</dimen>

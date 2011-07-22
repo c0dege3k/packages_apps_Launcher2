@@ -115,7 +115,8 @@
 	<ImageView
 	    android:id="@+id/disk_bar"
 	    style="@style/StarkHotseat"
-	    android:layout_width="wrap_content"
+	    android:layout_width="@dimen/center_bar_height"
+	    android:layout_height="@dimen/center_bar_width"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
 	    android:src="@drawable/stark_bar"
@@ -125,7 +126,8 @@
         <ImageView
             android:id="@+id/hotseat_left"
 	    style="StarkHotseat.Left"
-	    android:layout_width="wrap_content"
+	    android:layout_width="@dimen/stark_bar_height"
+	    android:layout_height="@dimen/stark_bar_height"
             android:src="@drawable/stark_hotseat_phone"
 	    android:layout_below="@id/disk_bar"
             android:onClick="launchHotSeat"
@@ -134,7 +136,8 @@
         <ImageView
             android:id="@+id/hotseat_right"
 	    style="StarkHotseat.Right"
-	    android:layout_width="wrap_content"
+	    android:layout_width="@dimen/stark_bar_height"
+	    android:layout_height="@dimen/stark_bar_height"
             android:src="@drawable/stark_hotseat_browser"
 	    android:layout_above="@id/disk_bar"
             android:onClick="launchHotSeat"
