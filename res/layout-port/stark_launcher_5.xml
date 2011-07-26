@@ -40,8 +40,6 @@
 	    	android:layout_width="wrap_content" 
 	    	android:layout_height="wrap_content"
 		android:layout_gravity="bottom|center"
-		android:transformPivotX="240dp"
-		android:transformPivotY="240dp"
 	    	android:src="@drawable/stark_full"
 	    />
     </RelativeLayout>
