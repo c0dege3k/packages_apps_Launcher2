@@ -33,7 +33,6 @@
     <RelativeLayout android:id="@+id/disk_parent"
 	android:layout_width="480dip"
 	android:layout_height="480dip"
-	android:centerHorizontal="true"
 	android:layout_above="@id/all_apps_button_cluster"
 	android:clipChildren = "true">
 	    <com.android.launcher2.LauncherDisk
