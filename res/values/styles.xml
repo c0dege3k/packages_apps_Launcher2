@@ -115,13 +115,13 @@
     <style name="StarkHotseat.Left">
         <item name="android:layout_marginLeft">4dip</item>
         <item name="android:background">@drawable/stark_phone</item>
-	<item name="android:layout_width">@dimen/stark_bar_width</item>
+	<item name="android:layout_width">@dimen/stark_bar_height</item>
         <item name="android:layout_height">@dimen/stark_bar_height</item>
     </style>
     <style name="StarkHotseat.Right">
         <item name="android:layout_marginRight">4dip</item>
         <item name="android:background">@drawable/stark_browser</item>
-        <item name="android:layout_width">@dimen/stark_bar_width</item>
+        <item name="android:layout_width">@dimen/stark_bar_height</item>
         <item name="android:layout_height">@dimen/stark_bar_height</item>
     </style>
 </resources>
