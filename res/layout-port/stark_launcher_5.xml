@@ -33,13 +33,13 @@
     <RelativeLayout android:id="@+id/disk_parent"
 	android:layout_width="480dip"
 	android:layout_height="480dip"
-	android:layout_gravity="center|bottom"
+	android:centerHorizontal="true"
+	android:layout_above="@id/all_apps_button_cluster"
 	android:clipChildren = "true">
 	    <com.android.launcher2.LauncherDisk
 	    	android:id="@+id/disk" 
-	    	android:layout_width="wrap_content" 
-	    	android:layout_height="wrap_content"
-		android:layout_gravity="bottom|center"
+	    	android:layout_width="match_parent" 
+	    	android:layout_height="match_parent"
 	    	android:src="@drawable/stark_full"
 	    />
     </RelativeLayout>
@@ -95,7 +95,7 @@
     <RelativeLayout
         android:id="@+id/all_apps_button_cluster"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/button_bar_height"
+        android:layout_height="@dimen/stark_bar_height"
         android:layout_gravity="bottom|center_horizontal"
         android:paddingTop="2dip"
         >
