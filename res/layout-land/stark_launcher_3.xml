@@ -36,8 +36,8 @@
 	android:clipChildren = "true">
 	    <com.android.launcher2.LauncherDisk
 	    	android:id="@+id/disk" 
-	    	android:layout_width="match_parent" 
-	    	android:layout_height="match_parent"
+	    	android:layout_width="480dip" 
+	    	android:layout_height="480dip"
 	    	android:src="@drawable/stark_full"
 	    />
     </RelativeLayout>
@@ -109,6 +109,8 @@
 	    android:layout_height="@dimen/center_bar_width"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+	    android:paddingTop="6dip"
+	    android:paddingBottom="6dip"
 	    android:src="@drawable/stark_bar"
 	    android:onClick="changeDiskVisibility"
 	    />
